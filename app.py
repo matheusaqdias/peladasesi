@@ -434,3 +434,4 @@ with aba3:
         if st.button("🚪 Sair do admin"):
             st.session_state.admin_logado = False
             st.rerun()
+            
