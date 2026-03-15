@@ -47,24 +47,92 @@ def carregar_fundo(imagem_path):
             f"""
             <style>
             .stApp {{
-                background-image: url("data:image/jpg;base64,{encoded}");
+                background-image:
+                    linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.50)),
+                    url("data:image/jpg;base64,{encoded}");
                 background-size: cover;
                 background-position: center;
                 background-attachment: fixed;
             }}
 
+            .main .block-container {{
+                padding-top: 2rem;
+                padding-bottom: 2rem;
+            }}
+
             .bloco-card {{
-                background: rgba(0, 0, 0, 0.58);
+                background: rgba(0, 0, 0, 0.68);
                 padding: 18px;
                 border-radius: 16px;
                 color: white;
                 margin-bottom: 12px;
-                border: 1px solid rgba(255,255,255,0.10);
+                border: 1px solid rgba(255,255,255,0.12);
+                backdrop-filter: blur(4px);
             }}
 
             .titulo-card {{
                 margin-top: 0;
                 margin-bottom: 10px;
+                color: white !important;
+            }}
+
+            h1, h2, h3, h4, h5, h6, p, li {{
+                color: white !important;
+            }}
+
+            label, .stMarkdown, .stCaption {{
+                color: white !important;
+            }}
+
+            [data-testid="stMetricValue"],
+            [data-testid="stMetricLabel"],
+            [data-testid="stMarkdownContainer"],
+            [data-testid="stText"],
+            [data-testid="stCaptionContainer"] {{
+                color: white !important;
+            }}
+
+            .stTextInput label,
+            .stRadio label,
+            .stSelectbox label,
+            .stTextArea label,
+            .stSubheader,
+            .stHeader {{
+                color: white !important;
+            }}
+
+            .stTabs [data-baseweb="tab"] {{
+                color: white !important;
+            }}
+
+            .stTabs [aria-selected="true"] {{
+                background-color: rgba(255,255,255,0.12) !important;
+                border-radius: 10px 10px 0 0;
+            }}
+
+            div[data-baseweb="input"] > div {{
+                background-color: rgba(255,255,255,0.92) !important;
+                color: black !important;
+            }}
+
+            textarea {{
+                background-color: rgba(255,255,255,0.92) !important;
+                color: black !important;
+            }}
+
+            .stSelectbox div[data-baseweb="select"] > div {{
+                background-color: rgba(255,255,255,0.92) !important;
+                color: black !important;
+            }}
+
+            .stRadio div[role="radiogroup"] {{
+                background: rgba(0, 0, 0, 0.35);
+                padding: 10px;
+                border-radius: 12px;
+            }}
+
+            div[data-testid="stAlert"] {{
+                border-radius: 12px;
             }}
             </style>
             """,
@@ -79,18 +147,84 @@ def carregar_fundo(imagem_path):
                 background-attachment: fixed;
             }
 
+            .main .block-container {
+                padding-top: 2rem;
+                padding-bottom: 2rem;
+            }
+
             .bloco-card {
-                background: rgba(0, 0, 0, 0.58);
+                background: rgba(0, 0, 0, 0.68);
                 padding: 18px;
                 border-radius: 16px;
                 color: white;
                 margin-bottom: 12px;
-                border: 1px solid rgba(255,255,255,0.10);
+                border: 1px solid rgba(255,255,255,0.12);
+                backdrop-filter: blur(4px);
             }
 
             .titulo-card {
                 margin-top: 0;
                 margin-bottom: 10px;
+                color: white !important;
+            }
+
+            h1, h2, h3, h4, h5, h6, p, li {
+                color: white !important;
+            }
+
+            label, .stMarkdown, .stCaption {
+                color: white !important;
+            }
+
+            [data-testid="stMetricValue"],
+            [data-testid="stMetricLabel"],
+            [data-testid="stMarkdownContainer"],
+            [data-testid="stText"],
+            [data-testid="stCaptionContainer"] {
+                color: white !important;
+            }
+
+            .stTextInput label,
+            .stRadio label,
+            .stSelectbox label,
+            .stTextArea label,
+            .stSubheader,
+            .stHeader {
+                color: white !important;
+            }
+
+            .stTabs [data-baseweb="tab"] {
+                color: white !important;
+            }
+
+            .stTabs [aria-selected="true"] {
+                background-color: rgba(255,255,255,0.12) !important;
+                border-radius: 10px 10px 0 0;
+            }
+
+            div[data-baseweb="input"] > div {
+                background-color: rgba(255,255,255,0.92) !important;
+                color: black !important;
+            }
+
+            textarea {
+                background-color: rgba(255,255,255,0.92) !important;
+                color: black !important;
+            }
+
+            .stSelectbox div[data-baseweb="select"] > div {
+                background-color: rgba(255,255,255,0.92) !important;
+                color: black !important;
+            }
+
+            .stRadio div[role="radiogroup"] {
+                background: rgba(0, 0, 0, 0.35);
+                padding: 10px;
+                border-radius: 12px;
+            }
+
+            div[data-testid="stAlert"] {
+                border-radius: 12px;
             }
             </style>
             """,
@@ -285,6 +419,9 @@ inicializar_estado()
 st.title("⚽ Sorteador de Futebol")
 st.caption("Cadastro dos próprios jogadores + sorteio automático de 4 times")
 
+if st.session_state.admin_logado:
+    st.success("🔑 Admin logado")
+
 m1, m2, m3 = st.columns(3)
 with m1:
     st.metric("Goleiros", f"{len(st.session_state.goleiros)}/{LIMITE_GOLEIROS}")
@@ -334,7 +471,6 @@ with aba2:
                 st.success("Times sorteados com sucesso!")
 
     with col_btn2:
-
         if st.session_state.admin_logado:
             if st.button("🔄 Sortear novamente", use_container_width=True):
                 resultado, erro = sortear_times()
@@ -345,7 +481,7 @@ with aba2:
                     st.session_state.times_sorteados = resultado
                     st.success("Novo sorteio realizado!")
 
-        st.divider()
+    st.divider()
 
     if st.session_state.times_sorteados:
         c1, c2 = st.columns(2)
