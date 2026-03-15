@@ -17,7 +17,7 @@ st.set_page_config(
 # =========================================================
 # CONFIGURAÇÕES
 # =========================================================
-ADMIN_PASSWORD = ADMIN_PASSWORD = st.secrets["ADMIN_PASSWORD"]
+ADMIN_PASSWORD = st.secrets["ADMIN_PASSWORD"]
 BACKGROUND_IMAGE = "fundo.jpg"
 
 LIMITE_GOLEIROS = 4
