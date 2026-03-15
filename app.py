@@ -6,11 +6,6 @@ import os
 from dotenv import load_dotenv
 
 # =========================================================
-# CARREGAR VARIÁVEIS DE AMBIENTE
-# =========================================================
-load_dotenv()
-
-# =========================================================
 # CONFIGURAÇÃO DA PÁGINA
 # =========================================================
 st.set_page_config(
@@ -22,7 +17,7 @@ st.set_page_config(
 # =========================================================
 # CONFIGURAÇÕES
 # =========================================================
-ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD")
+ADMIN_PASSWORD = ADMIN_PASSWORD = st.secrets["ADMIN_PASSWORD"]
 BACKGROUND_IMAGE = "fundo.jpg"
 
 LIMITE_GOLEIROS = 4
