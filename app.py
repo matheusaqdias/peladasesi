@@ -344,10 +344,8 @@ with aba2:
                 else:
                     st.session_state.times_sorteados = resultado
                     st.success("Novo sorteio realizado!")
-        else:
-            st.warning("Apenas o administrador pode sortear novamente.")
 
-    st.divider()
+        st.divider()
 
     if st.session_state.times_sorteados:
         c1, c2 = st.columns(2)
