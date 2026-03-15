@@ -2,14 +2,13 @@ import streamlit as st
 import random
 import base64
 from pathlib import Path
-import os
-from dotenv import load_dotenv
+import hmac
 
 # =========================================================
 # CONFIGURAÇÃO DA PÁGINA
 # =========================================================
 st.set_page_config(
-    page_title="Sorteador de futebol da pelada do",
+    page_title="Sorteador de futebol da pelada",
     page_icon="⚽",
     layout="wide"
 )
@@ -17,17 +16,21 @@ st.set_page_config(
 # =========================================================
 # CONFIGURAÇÕES
 # =========================================================
-ADMIN_PASSWORD = st.secrets["ADMIN_PASSWORD"]
+try:
+    ADMIN_PASSWORD = st.secrets["ADMIN_PASSWORD"]
+except Exception:
+    st.error("A senha ADMIN_PASSWORD não foi configurada nos Secrets do Streamlit Cloud.")
+    st.info(
+        "No Streamlit Cloud, abra o app > Manage app > Secrets e adicione:\n\n"
+        'ADMIN_PASSWORD = "sua_senha_aqui"'
+    )
+    st.stop()
+
 BACKGROUND_IMAGE = "fundo.jpg"
 
 LIMITE_GOLEIROS = 4
 LIMITE_LINHA = 24
 TIMES = ["Time A", "Time B", "Time C", "Time D"]
-
-# Validação simples para evitar erro silencioso
-if not ADMIN_PASSWORD:
-    st.error("A variável ADMIN_PASSWORD não foi encontrada no arquivo .env")
-    st.stop()
 
 
 # =========================================================
@@ -367,7 +370,7 @@ with aba3:
     if not st.session_state.admin_logado:
         senha = st.text_input("Senha do admin", type="password")
         if st.button("Entrar como admin"):
-            if senha == ADMIN_PASSWORD:
+            if hmac.compare_digest(senha, ADMIN_PASSWORD):
                 st.session_state.admin_logado = True
                 st.success("Login realizado com sucesso.")
                 st.rerun()
