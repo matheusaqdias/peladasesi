@@ -92,6 +92,12 @@ def carregar_fundo(imagem_path):
                 color: white !important;
             }}
 
+            .stTabs [data-baseweb="tab"] p,
+            .stTabs [data-baseweb="tab"] span,
+            .stTabs [data-baseweb="tab"] div {{
+                color: white !important;
+            }}
+
             .stTabs [aria-selected="true"] {{
                 background-color: rgba(255,255,255,0.12) !important;
                 border-radius: 10px 10px 0 0;
@@ -105,14 +111,16 @@ def carregar_fundo(imagem_path):
 
             input {{
                 color: black !important;
-            }}
-
-            .stSelectbox div[data-baseweb="select"] > div {{
-                background-color: rgba(255,255,255,0.95) !important;
-                color: black !important;
+                -webkit-text-fill-color: black !important;
             }}
 
             textarea {{
+                background-color: rgba(255,255,255,0.95) !important;
+                color: black !important;
+                -webkit-text-fill-color: black !important;
+            }}
+
+            .stSelectbox div[data-baseweb="select"] > div {{
                 background-color: rgba(255,255,255,0.95) !important;
                 color: black !important;
             }}
@@ -134,10 +142,55 @@ def carregar_fundo(imagem_path):
                 padding: 0.5rem 1rem !important;
             }}
 
+            .stButton > button *,
+            .stFormSubmitButton > button * {{
+                color: #111111 !important;
+                fill: #111111 !important;
+            }}
+
             .stButton > button:hover,
             .stFormSubmitButton > button:hover {{
                 background-color: #eaeaea !important;
                 color: #000000 !important;
+            }}
+
+            .stButton > button:hover *,
+            .stFormSubmitButton > button:hover * {{
+                color: #000000 !important;
+                fill: #000000 !important;
+            }}
+
+            .stButton > button:focus,
+            .stButton > button:active,
+            .stFormSubmitButton > button:focus,
+            .stFormSubmitButton > button:active {{
+                color: #111111 !important;
+                border: none !important;
+                box-shadow: none !important;
+                outline: none !important;
+            }}
+
+            .stButton > button:focus *,
+            .stButton > button:active *,
+            .stFormSubmitButton > button:focus *,
+            .stFormSubmitButton > button:active * {{
+                color: #111111 !important;
+                fill: #111111 !important;
+            }}
+
+            button[kind="primary"],
+            button[kind="secondary"],
+            button[data-testid="baseButton-secondary"],
+            button[data-testid="baseButton-primary"] {{
+                color: #111111 !important;
+            }}
+
+            button[kind="primary"] *,
+            button[kind="secondary"] *,
+            button[data-testid="baseButton-secondary"] *,
+            button[data-testid="baseButton-primary"] * {{
+                color: #111111 !important;
+                fill: #111111 !important;
             }}
 
             div[data-testid="stAlert"] {{
@@ -193,6 +246,12 @@ def carregar_fundo(imagem_path):
                 color: white !important;
             }
 
+            .stTabs [data-baseweb="tab"] p,
+            .stTabs [data-baseweb="tab"] span,
+            .stTabs [data-baseweb="tab"] div {
+                color: white !important;
+            }
+
             .stTabs [aria-selected="true"] {
                 background-color: rgba(255,255,255,0.12) !important;
                 border-radius: 10px 10px 0 0;
@@ -206,14 +265,16 @@ def carregar_fundo(imagem_path):
 
             input {
                 color: black !important;
-            }
-
-            .stSelectbox div[data-baseweb="select"] > div {
-                background-color: rgba(255,255,255,0.95) !important;
-                color: black !important;
+                -webkit-text-fill-color: black !important;
             }
 
             textarea {
+                background-color: rgba(255,255,255,0.95) !important;
+                color: black !important;
+                -webkit-text-fill-color: black !important;
+            }
+
+            .stSelectbox div[data-baseweb="select"] > div {
                 background-color: rgba(255,255,255,0.95) !important;
                 color: black !important;
             }
@@ -235,10 +296,55 @@ def carregar_fundo(imagem_path):
                 padding: 0.5rem 1rem !important;
             }
 
+            .stButton > button *,
+            .stFormSubmitButton > button * {
+                color: #111111 !important;
+                fill: #111111 !important;
+            }
+
             .stButton > button:hover,
             .stFormSubmitButton > button:hover {
                 background-color: #eaeaea !important;
                 color: #000000 !important;
+            }
+
+            .stButton > button:hover *,
+            .stFormSubmitButton > button:hover * {
+                color: #000000 !important;
+                fill: #000000 !important;
+            }
+
+            .stButton > button:focus,
+            .stButton > button:active,
+            .stFormSubmitButton > button:focus,
+            .stFormSubmitButton > button:active {
+                color: #111111 !important;
+                border: none !important;
+                box-shadow: none !important;
+                outline: none !important;
+            }
+
+            .stButton > button:focus *,
+            .stButton > button:active *,
+            .stFormSubmitButton > button:focus *,
+            .stFormSubmitButton > button:active * {
+                color: #111111 !important;
+                fill: #111111 !important;
+            }
+
+            button[kind="primary"],
+            button[kind="secondary"],
+            button[data-testid="baseButton-secondary"],
+            button[data-testid="baseButton-primary"] {
+                color: #111111 !important;
+            }
+
+            button[kind="primary"] *,
+            button[kind="secondary"] *,
+            button[data-testid="baseButton-secondary"] *,
+            button[data-testid="baseButton-primary"] * {
+                color: #111111 !important;
+                fill: #111111 !important;
             }
 
             div[data-testid="stAlert"] {
