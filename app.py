@@ -334,14 +334,18 @@ with aba2:
                 st.success("Times sorteados com sucesso!")
 
     with col_btn2:
-        if st.button("🔄 Sortear novamente", use_container_width=True):
-            resultado, erro = sortear_times()
 
-            if erro:
-                st.error(erro)
-            else:
-                st.session_state.times_sorteados = resultado
-                st.success("Novo sorteio realizado!")
+        if st.session_state.admin_logado:
+            if st.button("🔄 Sortear novamente", use_container_width=True):
+                resultado, erro = sortear_times()
+
+                if erro:
+                    st.error(erro)
+                else:
+                    st.session_state.times_sorteados = resultado
+                    st.success("Novo sorteio realizado!")
+        else:
+            st.warning("Apenas o administrador pode sortear novamente.")
 
     st.divider()
 
@@ -434,4 +438,3 @@ with aba3:
         if st.button("🚪 Sair do admin"):
             st.session_state.admin_logado = False
             st.rerun()
-            
