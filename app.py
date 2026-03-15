@@ -48,7 +48,7 @@ def carregar_fundo(imagem_path):
             <style>
             .stApp {{
                 background-image:
-                    linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.50)),
+                    linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
                     url("data:image/jpg;base64,{encoded}");
                 background-size: cover;
                 background-position: center;
@@ -56,18 +56,19 @@ def carregar_fundo(imagem_path):
             }}
 
             .main .block-container {{
+                max-width: 1100px;
                 padding-top: 2rem;
                 padding-bottom: 2rem;
             }}
 
             .bloco-card {{
-                background: rgba(0, 0, 0, 0.68);
+                background: rgba(0, 0, 0, 0.62);
                 padding: 18px;
-                border-radius: 16px;
+                border-radius: 18px;
                 color: white;
                 margin-bottom: 12px;
                 border: 1px solid rgba(255,255,255,0.12);
-                backdrop-filter: blur(4px);
+                backdrop-filter: blur(6px);
             }}
 
             .titulo-card {{
@@ -76,28 +77,14 @@ def carregar_fundo(imagem_path):
                 color: white !important;
             }}
 
-            h1, h2, h3, h4, h5, h6, p, li {{
-                color: white !important;
-            }}
-
-            label, .stMarkdown, .stCaption {{
+            h1, h2, h3, h4, h5, h6, p, li, label, span {{
                 color: white !important;
             }}
 
             [data-testid="stMetricValue"],
             [data-testid="stMetricLabel"],
             [data-testid="stMarkdownContainer"],
-            [data-testid="stText"],
             [data-testid="stCaptionContainer"] {{
-                color: white !important;
-            }}
-
-            .stTextInput label,
-            .stRadio label,
-            .stSelectbox label,
-            .stTextArea label,
-            .stSubheader,
-            .stHeader {{
                 color: white !important;
             }}
 
@@ -111,24 +98,46 @@ def carregar_fundo(imagem_path):
             }}
 
             div[data-baseweb="input"] > div {{
-                background-color: rgba(255,255,255,0.92) !important;
+                background-color: rgba(255,255,255,0.95) !important;
                 color: black !important;
+                border-radius: 10px !important;
             }}
 
-            textarea {{
-                background-color: rgba(255,255,255,0.92) !important;
+            input {{
                 color: black !important;
             }}
 
             .stSelectbox div[data-baseweb="select"] > div {{
-                background-color: rgba(255,255,255,0.92) !important;
+                background-color: rgba(255,255,255,0.95) !important;
+                color: black !important;
+            }}
+
+            textarea {{
+                background-color: rgba(255,255,255,0.95) !important;
                 color: black !important;
             }}
 
             .stRadio div[role="radiogroup"] {{
                 background: rgba(0, 0, 0, 0.35);
-                padding: 10px;
+                padding: 10px 14px;
                 border-radius: 12px;
+                width: fit-content;
+            }}
+
+            .stButton > button,
+            .stFormSubmitButton > button {{
+                background-color: #ffffff !important;
+                color: #111111 !important;
+                border: none !important;
+                border-radius: 10px !important;
+                font-weight: 600 !important;
+                padding: 0.5rem 1rem !important;
+            }}
+
+            .stButton > button:hover,
+            .stFormSubmitButton > button:hover {{
+                background-color: #eaeaea !important;
+                color: #000000 !important;
             }}
 
             div[data-testid="stAlert"] {{
@@ -148,18 +157,19 @@ def carregar_fundo(imagem_path):
             }
 
             .main .block-container {
+                max-width: 1100px;
                 padding-top: 2rem;
                 padding-bottom: 2rem;
             }
 
             .bloco-card {
-                background: rgba(0, 0, 0, 0.68);
+                background: rgba(0, 0, 0, 0.62);
                 padding: 18px;
-                border-radius: 16px;
+                border-radius: 18px;
                 color: white;
                 margin-bottom: 12px;
                 border: 1px solid rgba(255,255,255,0.12);
-                backdrop-filter: blur(4px);
+                backdrop-filter: blur(6px);
             }
 
             .titulo-card {
@@ -168,28 +178,14 @@ def carregar_fundo(imagem_path):
                 color: white !important;
             }
 
-            h1, h2, h3, h4, h5, h6, p, li {
-                color: white !important;
-            }
-
-            label, .stMarkdown, .stCaption {
+            h1, h2, h3, h4, h5, h6, p, li, label, span {
                 color: white !important;
             }
 
             [data-testid="stMetricValue"],
             [data-testid="stMetricLabel"],
             [data-testid="stMarkdownContainer"],
-            [data-testid="stText"],
             [data-testid="stCaptionContainer"] {
-                color: white !important;
-            }
-
-            .stTextInput label,
-            .stRadio label,
-            .stSelectbox label,
-            .stTextArea label,
-            .stSubheader,
-            .stHeader {
                 color: white !important;
             }
 
@@ -203,24 +199,46 @@ def carregar_fundo(imagem_path):
             }
 
             div[data-baseweb="input"] > div {
-                background-color: rgba(255,255,255,0.92) !important;
+                background-color: rgba(255,255,255,0.95) !important;
                 color: black !important;
+                border-radius: 10px !important;
             }
 
-            textarea {
-                background-color: rgba(255,255,255,0.92) !important;
+            input {
                 color: black !important;
             }
 
             .stSelectbox div[data-baseweb="select"] > div {
-                background-color: rgba(255,255,255,0.92) !important;
+                background-color: rgba(255,255,255,0.95) !important;
+                color: black !important;
+            }
+
+            textarea {
+                background-color: rgba(255,255,255,0.95) !important;
                 color: black !important;
             }
 
             .stRadio div[role="radiogroup"] {
                 background: rgba(0, 0, 0, 0.35);
-                padding: 10px;
+                padding: 10px 14px;
                 border-radius: 12px;
+                width: fit-content;
+            }
+
+            .stButton > button,
+            .stFormSubmitButton > button {
+                background-color: #ffffff !important;
+                color: #111111 !important;
+                border: none !important;
+                border-radius: 10px !important;
+                font-weight: 600 !important;
+                padding: 0.5rem 1rem !important;
+            }
+
+            .stButton > button:hover,
+            .stFormSubmitButton > button:hover {
+                background-color: #eaeaea !important;
+                color: #000000 !important;
             }
 
             div[data-testid="stAlert"] {
@@ -433,6 +451,7 @@ with m3:
 aba1, aba2, aba3 = st.tabs(["Entrar na lista", "Sorteio", "Admin"])
 
 with aba1:
+    st.markdown('<div class="bloco-card">', unsafe_allow_html=True)
     st.subheader("Entrar na lista do futebol")
 
     with st.form("form_jogador"):
@@ -446,6 +465,8 @@ with aba1:
             st.success(mensagem)
         else:
             st.error(mensagem)
+
+    st.markdown("</div>", unsafe_allow_html=True)
 
     st.divider()
     st.subheader("Lista atual")
